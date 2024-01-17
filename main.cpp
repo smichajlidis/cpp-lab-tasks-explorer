@@ -1,5 +1,5 @@
-#include <iostream>
+#include "include/Explorer.hpp"
 
 int main() {
-    std::cout << "Hello World!" << std::endl;
+    Explorer explorer;
 }
