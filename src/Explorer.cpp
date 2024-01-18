@@ -31,6 +31,7 @@ void Explorer::mainMenu() const {
                 throw InvalidInputException();
             }
         } catch (const InvalidInputException &ex) {
+            consoleAnimator.clear();
             std::cerr << ex.what() << std::endl;
         }
     } while (invalidInput);
