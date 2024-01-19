@@ -7,7 +7,7 @@ class Task {
     std::string name;
 public:
     virtual std::string getName() const;
-    Task(std::string& name);
+    Task(const std::string& name);
     ~Task();
 };
 
