@@ -1,6 +1,6 @@
 #include "../include/Task.hpp"
 
-Task::Task(std::string& name)
+Task::Task(const std::string& name)
     : name(name) {}
 
 Task::~Task() {}
