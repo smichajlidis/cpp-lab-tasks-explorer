@@ -5,8 +5,8 @@
 #include <limits>
 
 Explorer::Explorer() {
-    std::unique_ptr<Task> fibonacciGenerator = std::make_unique<FibonacciGenerator>("Fibonacci Generator");
-    tasks.push_back(std::move(fibonacciGenerator));
+    std::unique_ptr<Task> fibonacciGeneratorIterative = std::make_unique<FibonacciGenerator>("Fibonacci Generator Iterative");
+    tasks.push_back(std::move(fibonacciGeneratorIterative));
     mainMenu();  
 }
 
@@ -38,4 +38,11 @@ void Explorer::mainMenu() const {
             std::cerr << ex.what() << std::endl;
         }
     } while (invalidInput);
+
+    consoleAnimator.clear();
+    tasks.at(choice-1)->execute();
+
+    std::cout << "What do you want to do now?" << std::endl;
+    std::cin >> choice;
+
 }
