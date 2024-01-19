@@ -5,8 +5,11 @@
 #include <limits>
 
 Explorer::Explorer() {
+    // create all tasks objects and run mainMenu
     std::unique_ptr<Task> fibonacciGeneratorIterative = std::make_unique<FibonacciGenerator>("Fibonacci Generator Iterative");
     tasks.push_back(std::move(fibonacciGeneratorIterative));
+    std::unique_ptr<Task> fibonacciGeneratorRecursive = std::make_unique<FibonacciGenerator>("Fibonacci Generator Recursive");
+    tasks.push_back(std::move(fibonacciGeneratorRecursive));
     mainMenu();  
 }
 
