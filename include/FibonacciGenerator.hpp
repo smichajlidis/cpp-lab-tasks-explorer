@@ -6,6 +6,8 @@
 
 class FibonacciGenerator: public Task {
 public:
+    virtual void execute() const;
+    void fibIterative(int) const;
     FibonacciGenerator(const std::string& name);
 };
 
