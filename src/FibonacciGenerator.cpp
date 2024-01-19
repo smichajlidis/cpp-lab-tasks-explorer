@@ -12,14 +12,17 @@ void FibonacciGenerator::execute() const {
         std::cout << "Sorry, you have to give a number > 0." << std::endl;
     else 
         std::cout << "There you go:\n";
-    if (getName() == "Fibonacci Generator Recursive")
-        std::cout << "recursive code" << std::endl;
+    if (getName() == "Fibonacci Generator Recursive") {
+        for (auto& fib: fibRecursive(n)) {
+            std::cout << fib << " ";
+        }
+    }
     else
         fibIterative(n);
+    std::cout << std::endl;
 }
 
 void FibonacciGenerator::fibIterative(int n) const {
-
     int a = 0, b = 1;
     std::cout << " " << a;
     if (n == 1) {
@@ -33,6 +36,21 @@ void FibonacciGenerator::fibIterative(int n) const {
         a = b;
         b = nextNumber;
     }
+}
 
-    std::cout << std::endl;
+std::vector<int> FibonacciGenerator::fibRecursive(int n) const {
+    std::vector<int> result;
+    if (n < 1) {
+        return result;
+    }
+    result.push_back(0);
+    if (n == 1) {
+        return result;
+    }
+    result.push_back(1);
+    for (int i = 2; i < n; ++i) {
+        int nextNumber = result[i - 1] + result[i - 2];
+        result.push_back(nextNumber);
+    }
+    return result;
 }
