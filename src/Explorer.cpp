@@ -1,10 +1,13 @@
 #include "../include/Explorer.hpp"
 #include "../include/InvalidInputException.hpp"
+#include "../include/FibonacciGenerator.hpp"
 #include <iostream>
 #include <limits>
 
 Explorer::Explorer() {
-    mainMenu();
+    std::unique_ptr<Task> fibonacciGenerator = std::make_unique<FibonacciGenerator>("Fibonacci Generator");
+    tasks.push_back(std::move(fibonacciGenerator));
+    mainMenu();  
 }
 
 Explorer::~Explorer() {}
