@@ -11,6 +11,7 @@ class Explorer {
     ConsoleAnimator consoleAnimator;
 public:
     void mainMenu() const;
+    void taskMenu(int choice) const;
     Explorer();
     ~Explorer();
 };
