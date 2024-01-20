@@ -7,7 +7,8 @@
 
 class FibonacciGenerator: public Task {
 public:
-    virtual void execute() const;
+    virtual void execute() const override;
+    virtual void showCode() const override;
     void fibIterative(int) const;
     std::vector<int> fibRecursive(int) const;
     FibonacciGenerator(const std::string& name);
