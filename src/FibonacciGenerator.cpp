@@ -54,3 +54,7 @@ std::vector<int> FibonacciGenerator::fibRecursive(int n) const {
     }
     return result;
 }
+
+void FibonacciGenerator::showCode() const {
+    std::cout << "HERE WILL BE MY CODE" << std::endl;
+}
