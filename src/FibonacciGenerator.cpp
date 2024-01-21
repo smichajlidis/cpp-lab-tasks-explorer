@@ -55,6 +55,16 @@ std::vector<int> FibonacciGenerator::fibRecursive(int n) const {
     return result;
 }
 
+#include <iostream>
+#include <fstream>
+
 void FibonacciGenerator::showCode() const {
-    std::cout << "HERE WILL BE MY CODE" << std::endl;
+
+    std::ifstream file {"../src/FibonacciGenerator.cpp"};
+
+    if (file) {
+        std::cout << "It works!" << std::endl;
+    }
+    else
+        std::cout << "Error loading file" << std::endl;
 }
