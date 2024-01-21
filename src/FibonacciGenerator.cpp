@@ -63,7 +63,29 @@ void FibonacciGenerator::showCode() const {
     std::ifstream file {"../src/FibonacciGenerator.cpp"};
 
     if (file) {
-        std::cout << "It works!" << std::endl;
+
+        std::cout << "#include <iostream>\n\nint main() {" << std::endl;
+
+        std::string line;
+        int count = 1;
+        while (std::getline(file, line)) {
+            if (count>=8 && count<=10)
+                std::cout << line << std::endl;
+            else if (count>=16 && count<=18 && this->getName()=="Fibonacci Generator Recursive")
+                std::cout << line << std::endl;     
+            else if (count>=26 && count<=38 && this->getName()=="Fibonacci Generator Iterative") {
+                if (count == 26) std::cout << "\n";
+                std::cout << line << std::endl;
+            }
+            else if (count>=42 && count<=55 && this->getName()=="Fibonacci Generator Recursive") {
+                if (count == 42) std::cout << "}\n\nstd::vector<int> fibRecursive(int n) {" << std::endl;
+                std::cout << line << std::endl;
+            }
+            ++count;
+        }
+        std::cout << "}" << std::endl;
+
+        
     }
     else
         std::cout << "Error loading file" << std::endl;
