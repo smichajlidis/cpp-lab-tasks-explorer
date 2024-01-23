@@ -1,6 +1,7 @@
 #include "../include/Explorer.hpp"
 #include "../include/InvalidInputException.hpp"
 #include "../include/FibonacciGenerator.hpp"
+#include "../include/RecursivelySum.hpp"
 #include <iostream>
 #include <limits>
 
@@ -10,6 +11,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(fibonacciGeneratorIterative));
     std::unique_ptr<Task> fibonacciGeneratorRecursive = std::make_unique<FibonacciGenerator>("Fibonacci Generator Recursive");
     tasks.push_back(std::move(fibonacciGeneratorRecursive));
+    std::unique_ptr<Task> recursivelySum = std::make_unique<RecursivelySum>("Recursive Sum from 1 to 100");
+    tasks.push_back(std::move(recursivelySum));
     mainMenu();  
 }
 
