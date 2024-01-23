@@ -12,6 +12,7 @@ class Explorer {
 public:
     void mainMenu() const;
     void taskMenu(int choice) const;
+    void printHeader() const;
     Explorer();
     ~Explorer();
 };
