@@ -5,7 +5,7 @@
 class InvalidInputException: public std::exception {
 public:
     virtual const char* what() const noexcept {
-        return "Invalid input, try again. You should give only a number of existing task.";
+        return "Invalid input, try again.";
     }
     InvalidInputException() {};
     ~InvalidInputException() {};
