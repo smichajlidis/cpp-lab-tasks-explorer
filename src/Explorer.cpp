@@ -2,6 +2,7 @@
 #include "../include/InvalidInputException.hpp"
 #include "../include/FibonacciGenerator.hpp"
 #include "../include/RecursivelySum.hpp"
+#include "../include/MatrixMultiplier.hpp"
 #include <iostream>
 #include <limits>
 
@@ -13,6 +14,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(fibonacciGeneratorRecursive));
     std::unique_ptr<Task> recursivelySum = std::make_unique<RecursivelySum>("Recursive Sum from 1 to 100");
     tasks.push_back(std::move(recursivelySum));
+    std::unique_ptr<Task> matrixMultiplier = std::make_unique<MatrixMultiplier>("Multiplication of Two Given Matrices");
+    tasks.push_back(std::move(matrixMultiplier));
     mainMenu();  
 }
 
