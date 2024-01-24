@@ -51,7 +51,8 @@ void MatrixMultiplier::matrixMultiplier(const std::vector<std::vector<int>>& m1,
     int rowsM2 = m2.size();
     int colsM2 = m2[0].size();
     if (colsM1 != rowsM2) {
-        std::cerr << "Error: Incompatible matrix dimensions for multiplication." << std::endl;
+        consoleAnimator.clear();
+        std::cerr << "\nError: Incompatible matrix dimensions for multiplication.\n" << std::endl;
         return;
     }
     std::vector<std::vector<int>> result(rowsM1, std::vector<int>(colsM2, 0));
