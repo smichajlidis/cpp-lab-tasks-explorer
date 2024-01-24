@@ -83,6 +83,7 @@ void MatrixMultiplier::execute() const {
         try {
             std::cout << "\n\tFIRST MATRIX CREATION\n" << std::endl;
             m1=loadMatrix();
+            consoleAnimator.clear();
             std::cout << "\n\tSECOND MATRIX CREATION\n" << std::endl;
             m2=loadMatrix();
             done = true;
@@ -91,6 +92,7 @@ void MatrixMultiplier::execute() const {
                 std::cerr << ex.what() << std::endl;
         }
     } while (!done);
+    consoleAnimator.clear();
     matrixMultiplier(m1, m2);
 }
 
