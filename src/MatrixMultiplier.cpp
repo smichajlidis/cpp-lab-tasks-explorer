@@ -11,40 +11,36 @@ std::vector<std::vector<int>> MatrixMultiplier::loadMatrix() const {
     int rows, columns;
     std::vector<std::vector<int>> result;
 
-    try {
-        std::cout << "How many rows does the matrix have? ";
-        std::cin >> rows;    
-        if (std::cin.fail() || rows<1) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            throw InvalidInputException();
-        }
-        std::cout << "How many columns do you want? ";
-        std::cin >> columns;
-        if (std::cin.fail() || columns<1) {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            throw InvalidInputException();
-        }
-        std::cout << "\nPlease enter " << columns*rows << " numbers to fill the matrix:" << std::endl;
-        for (int i = 0; i < rows; i++) {
-            std::vector <int> row;
-            int value;
-            for (int j = 0; j < columns; j++) {
-                std::cin >> value;
-                if (std::cin.fail()) {
-                    std::cin.clear();
-                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    throw InvalidInputException();
-                }
-                row.push_back(value);
-            }
-            result.push_back(row);
-        }
-    } catch (const InvalidInputException &ex) {
-            consoleAnimator.clear();
-            std::cerr << ex.what() << std::endl;
+    std::cout << "How many rows does the matrix have? ";
+    std::cin >> rows;    
+    if (std::cin.fail() || rows<1) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw InvalidInputException();
     }
+    std::cout << "How many columns do you want? ";
+    std::cin >> columns;
+    if (std::cin.fail() || columns<1) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        throw InvalidInputException();
+    }
+    std::cout << "\nPlease enter " << columns*rows << " numbers to fill the matrix:" << std::endl;
+    for (int i = 0; i < rows; i++) {
+        std::vector <int> row;
+        int value;
+        for (int j = 0; j < columns; j++) {
+            std::cin >> value;
+            if (std::cin.fail()) {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                throw InvalidInputException();
+            }
+            row.push_back(value);
+        }
+        result.push_back(row);
+    }
+
     return result;
 }
 
@@ -81,10 +77,19 @@ void MatrixMultiplier::matrixMultiplier(const std::vector<std::vector<int>>& m1,
 void MatrixMultiplier::execute() const {
     std::vector<std::vector<int>> m1;
     std::vector<std::vector<int>> m2;
-    std::cout << "\n\tFIRST MATRIX CREATION\n" << std::endl;
-    m1=loadMatrix();
-    std::cout << "\n\tSECOND MATRIX CREATION\n" << std::endl;
-    m2=loadMatrix();
+    bool done = false;
+    do {
+        try {
+            std::cout << "\n\tFIRST MATRIX CREATION\n" << std::endl;
+            m1=loadMatrix();
+            std::cout << "\n\tSECOND MATRIX CREATION\n" << std::endl;
+            m2=loadMatrix();
+            done = true;
+        } catch (const InvalidInputException &ex) {
+                consoleAnimator.clear();
+                std::cerr << ex.what() << std::endl;
+        }
+    } while (!done);
     matrixMultiplier(m1, m2);
 }
 
