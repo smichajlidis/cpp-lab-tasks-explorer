@@ -3,6 +3,7 @@
 #include "../include/FibonacciGenerator.hpp"
 #include "../include/RecursivelySum.hpp"
 #include "../include/MatrixMultiplier.hpp"
+#include "../include/CezarCipher.hpp"
 #include <iostream>
 #include <limits>
 
@@ -16,6 +17,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(recursivelySum));
     std::unique_ptr<Task> matrixMultiplier = std::make_unique<MatrixMultiplier>("Multiplication of Two Given Matrices");
     tasks.push_back(std::move(matrixMultiplier));
+    std::unique_ptr<Task> cezarCipher = std::make_unique<CezarCipher>("Cezar Cipher Program");
+    tasks.push_back(std::move(cezarCipher));
     mainMenu();  
 }
 
@@ -79,6 +82,7 @@ void Explorer::taskMenu(int choice) const {
 }
 
 void Explorer::printHeader() const {
+    std::cout << std::endl;
     std::cout << "\t..........................................\n";
     std::cout << "\t----- C++1 LABORATORY TASKS EXPLORER -----\n";
     std::cout << "\t``````````````````````````````````````````" << std::endl;
