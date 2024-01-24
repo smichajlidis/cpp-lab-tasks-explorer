@@ -104,17 +104,21 @@ void MatrixMultiplier::showCode() const {
 
     if (file) {
 
-            std::cout << "#include <iostream>\n" << std::endl;
-
+            std::cout << "#include <iostream>" << std::endl;
+            std::cout << "#include <vector>\n" << std::endl;
             std::string line;
             int count = 1;
             while (std::getline(file, line)) {
-                if (count>=8 && count<=12) {
-                    if (count == 8) std::cout << "int recFunction(int n) {" << std::endl;
+                if (count>=11 && count<=45) {
+                    if (count == 11) std::cout << "std::vector<std::vector<int>> loadMatrix() {" << std::endl;
                     std::cout << line << std::endl;
                 }
-                else if (count>=15 && count<=17) {
-                    if (count == 15) std::cout << "\nint main() {" << std::endl;
+                else if (count>=49 && count<=76) {
+                    if (count == 49) std::cout << "\nvoid matrixMultiplier(const std::vector<std::vector<int>>& m1, const std::vector<std::vector<int>>& m2) {" << std::endl;
+                    std::cout << line << std::endl;
+                }
+                else if (count>=79 && count<=97) {
+                    if (count == 79) std::cout << "\nint main() {" << std::endl;
                     std::cout << line << std::endl;
                 }
                 ++count;
