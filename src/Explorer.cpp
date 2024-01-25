@@ -4,6 +4,7 @@
 #include "../include/RecursivelySum.hpp"
 #include "../include/MatrixMultiplier.hpp"
 #include "../include/CezarCipher.hpp"
+#include "../include/PESELGenerator.hpp"
 #include <iostream>
 #include <limits>
 
@@ -19,6 +20,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(matrixMultiplier));
     std::unique_ptr<Task> cezarCipher = std::make_unique<CezarCipher>("Cezar Cipher Program");
     tasks.push_back(std::move(cezarCipher));
+    std::unique_ptr<Task> PESEL_Generator = std::make_unique<PESELGenerator>("PESEL Generator");
+    tasks.push_back(std::move(PESEL_Generator));
     mainMenu();  
 }
 
