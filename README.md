@@ -9,8 +9,8 @@ oto lista zadan:
     Napisz program obliczajacy iloczyn macierzy (zadaniego wymiaru)
     Napisz program do szyfrowania tekstu szyfrem Cezara (szyfrowanie i deszyfrowanie)
     Napisz program do generowania numeru PESEL (użyj wikipedii) gdy podajemy date urodzenia
-    
     Napisz program obliczający ile dni upłynęło pomiędzy dwoma datami
+
     Napisz program obliczający sume dwóch liczb (liczby są reprezentowane jako kolejne cyfry w tablicy)
 
 
