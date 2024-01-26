@@ -5,6 +5,7 @@
 #include "../include/MatrixMultiplier.hpp"
 #include "../include/CezarCipher.hpp"
 #include "../include/PESELGenerator.hpp"
+#include "../include/DaysDifference.hpp"
 #include <iostream>
 #include <limits>
 
@@ -22,6 +23,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(cezarCipher));
     std::unique_ptr<Task> PESEL_Generator = std::make_unique<PESELGenerator>("PESEL Generator");
     tasks.push_back(std::move(PESEL_Generator));
+    std::unique_ptr<Task> days_difference = std::make_unique<DaysDifference>("Calculate Days Difference");
+    tasks.push_back(std::move(days_difference));
     mainMenu();  
 }
 
