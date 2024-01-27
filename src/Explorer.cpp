@@ -6,6 +6,8 @@
 #include "../include/CezarCipher.hpp"
 #include "../include/PESELGenerator.hpp"
 #include "../include/DaysDifference.hpp"
+#include "../include/ArrayAddition.hpp"
+
 #include <iostream>
 #include <limits>
 
@@ -25,6 +27,8 @@ Explorer::Explorer() {
     tasks.push_back(std::move(PESEL_Generator));
     std::unique_ptr<Task> days_difference = std::make_unique<DaysDifference>("Calculate Days Difference");
     tasks.push_back(std::move(days_difference));
+    std::unique_ptr<Task> array_addition = std::make_unique<ArrayAddition>("Sum of Two Numbers From Arrays");
+    tasks.push_back(std::move(array_addition));
     mainMenu();  
 }
 
